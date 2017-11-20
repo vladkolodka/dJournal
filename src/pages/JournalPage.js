@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { connect } from "react-redux";
-import { getParamsForJournalInfo, getJournalIdFromParams, isParamsHaveJournalData } from '../helpers/journalNavigation';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+import {connect} from "react-redux";
+import {getJournalIdFromParams, getParamsForJournalInfo, isParamsHaveJournalData} from '../helpers/journalNavigation';
 
-const { setCurrentJournal } = require('../actions/journalActions').Creators;
+const {setCurrentJournal} = require('../actions/journalActions').Creators;
 
 class JournalPage extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        if (props.item != null) props.navigation.setParams(getParamsForJournalInfo(props.item));
-    }
+    if (props.item != null) props.navigation.setParams(getParamsForJournalInfo(props.item));
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (isParamsHaveJournalData(nextProps.navigation.state.params))
-            nextProps.setCurrentJournal(getJournalIdFromParams(nextProps.navigation.state.params));
-    }
+  componentWillReceiveProps(nextProps) {
+    if (isParamsHaveJournalData(nextProps.navigation.state.params))
+      nextProps.setCurrentJournal(getJournalIdFromParams(nextProps.navigation.state.params));
+  }
 
 
-    render() {
-        const { item } = this.props;
+  render() {
+    const {item} = this.props;
 
-        return <View>
-            <Text>{item == null ? 'no item' : item.name}</Text>
-        </View>;
-    }
+    return <View>
+      <Text>{item == null ? 'no item' : item.name}</Text>
+    </View>;
+  }
 }
 
-const mapStateToProps = ({ journals }) => ({
-    item: journals.get('item') == null ? null : journals.get('items').filter(j => j.id == journals.get('item')).first()
+const mapStateToProps = ({journals}) => ({
+  item: journals.get('item') == null ? null : journals.get('items').filter(j => j.id == journals.get('item')).first()
 });
 
-export default connect(mapStateToProps, { setCurrentJournal })(JournalPage);
+export default connect(mapStateToProps, {setCurrentJournal})(JournalPage);

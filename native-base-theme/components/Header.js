@@ -1,4 +1,4 @@
-import { PixelRatio } from "react-native";
+import {PixelRatio} from "react-native";
 
 import variable from "./../variables/platform";
 
@@ -220,7 +220,7 @@ export default (variables = variable) => {
         },
       },
       "NativeBase.Title": {
-        color: variables.toolbarTextColor  
+        color: variables.toolbarTextColor
       },
     },
     "NativeBase.Right": {
@@ -254,7 +254,7 @@ export default (variables = variable) => {
           "NativeBase.Icon": {
             color: variables.toolbarBtnColor,
             fontSize:
-            platform === "ios" ? variables.iconHeaderSize - 6 : variables.iconHeaderSize - 2,
+              platform === "ios" ? variables.iconHeaderSize - 6 : variables.iconHeaderSize - 2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2,
@@ -262,7 +262,7 @@ export default (variables = variable) => {
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
             fontSize:
-            platform === "ios" ? variables.iconHeaderSize - 6 : variables.iconHeaderSize - 2,
+              platform === "ios" ? variables.iconHeaderSize - 6 : variables.iconHeaderSize - 2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2,
@@ -305,7 +305,7 @@ export default (variables = variable) => {
     height: variables.toolbarHeight,
     elevation: 3,
     shadowColor: platformStyle === "material" ? "#000" : undefined,
-    shadowOffset: platformStyle === "material" ? { width: 0, height: 2 } : undefined,
+    shadowOffset: platformStyle === "material" ? {width: 0, height: 2} : undefined,
     shadowOpacity: platformStyle === "material" ? 0.2 : undefined,
     shadowRadius: platformStyle === "material" ? 1.2 : undefined,
     top: 0,
